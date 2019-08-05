@@ -1,0 +1,29 @@
+.text-white.py-2{:style => "background-image: linear-gradient(to bottom, rgba(0, 0, 0, .75), rgba(0, 0, 0, .75)), url(https://static.pingendo.com/cover-bubble-dark.svg);  background-position: center center, center center;  background-size: cover, cover;  background-repeat: repeat, repeat;"}
+  .container
+    .row
+      .col-md-6.text-center.align-self-center.p-4
+        %p.mb-5
+          %strong Pingendo Inc.
+          = succeed "795" do
+            %br/
+          = succeed "San" do
+            %br/
+          %br/
+          %abbr{:title => "Phone"} P:
+          (123) 456-7890
+        .row
+          .col-md-12.d-flex.align-items-center.justify-content-around
+            %a{:href => "https://www.facebook.com/ignacio.a.soto", :target => "_blank"}
+              %i.d-block.fa.fa-facebook-official.text-light.fa-lg.mx-2
+            %a{:href => "#"}
+              %i.d-block.fa.fa-instagram.text-light.fa-lg.mx-2
+            %a{:href => "#"}
+              %i.d-block.fa.fa-google-plus-official.text-light.fa-lg.mx-2
+            %a{:href => "#"}
+              %i.d-block.fa.fa-pinterest-p.text-light.fa-lg.mx-2
+            %a{:href => "#"}
+              %i.d-block.fa.fa-reddit.text-light.fa-lg.mx-2
+            %a{:href => "#"}
+              %i.d-block.fa.fa-twitter.text-light.fa-lg.ml-2
+      .col-md-6.p-0
+        %iframe{:frameborder => "0", :height => "350", :scrolling => "no", :src => "https://maps.google.com/maps?hl=en&q=New%20York&ie=UTF8&t=&z=14&iwloc=B&output=embed", :width => "100%", :height => "100%"}

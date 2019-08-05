@@ -1,0 +1,26 @@
+.col-md-12.mt-5.mb-5
+  .container
+    .row.text-center.ml-5
+      .text-center.col-10
+        %h1.mb-6= title ||="Titulo"
+        %br
+        = form_for @category do |f|
+          - if @category.errors.any?
+            #error_explanation
+              %h2= "#{pluralize(@category.errors.count, "error")} prohibited this category from being saved:"
+              %ul
+                - @category.errors.full_messages.each do |message|
+                  %li= message
+
+          .form-group
+            /= f.label :name
+            = f.text_field :name, placeholder:"Nombre de categoría", class:"form-control"
+          .form-group
+            /= f.label :description
+            = f.text_field :description, placeholder:"Descripción", class:"form-control"
+          .form-group
+            /= f.label :c_img
+            = f.file_field :c_img, placeholder:"", class:"form-control"
+          %br
+          .actions
+            = f.submit 'Confirmar', class:"btn btn-primary"

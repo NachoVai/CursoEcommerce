@@ -1,0 +1,25 @@
+
+.py-5.text-center{:style => "background-image: url('https://static.pingendo.com/cover-bubble-dark.svg');background-size:cover;"}
+  .container
+    .row
+      .mx-auto.col-md-6.col-10.bg-white.p-5.border-dark.border
+        %h2 Iniciar sesión
+        %br
+        = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+          .form-group
+            
+            = f.email_field :email, autofocus: true, autocomplete: "email", placeholder:"Correo electrónico", class:"form-control"
+          .form-group
+            
+            = f.password_field :password, autocomplete: "current-password", placeholder:"Contraseña", class:"form-control"
+          .actions
+            %small.form-text.text-muted.text-right
+              %a{:href => "password/new.html"} Recuperar contraseña
+            %small.form-text.text-muted.text-right
+              %a{:href => "sign_up.html"} Registrarse
+            = f.submit "Iniciar sesión", class:"btn btn-primary"
+            %br
+            %br
+              - if devise_mapping.rememberable?
+                = f.check_box :remember_me 
+                = f.label :remember_me, font_size: "1px;"

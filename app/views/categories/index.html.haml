@@ -1,0 +1,21 @@
+.card-header.text-center
+  %h2 Administrar
+  .table-responsive
+    %table.table
+      %thead.text-center
+        %tr
+          %th Nombre
+          %th Acciones
+      %tbody.text-center
+        - @categories.each do |category|
+          %tr
+            %td= category.name
+            %td
+              = link_to edit_category_path(category), class:"btn btn-primary mx-2" do
+                %i.fa.fa-fw.fa-cog
+              = link_to category, method: :delete, data: { confirm: "Estas seguro?" }, class:"btn btn-primary mx-2" do
+                %i.fa.fa-fw.fa-trash-o
+              = link_to category, class:"btn btn-primary mx-2" do
+                %i.fa.fa-fw.fa-eye                      
+
+

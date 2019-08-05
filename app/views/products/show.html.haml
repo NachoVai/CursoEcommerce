@@ -1,0 +1,27 @@
+%p#notice= notice
+
+%p
+  %b P name:
+  = @product.p_name
+%p
+  %b P description:
+  = @product.p_description
+%p
+  %b P price:
+  = @product.p_price
+%p
+  %b P quantify:
+  = @product.p_quantify
+%p
+  %b P send:
+  = @product.p_send
+%p
+  %b P available:
+  = @product.p_available
+%p
+  %b User:
+  = @product.user
+
+= link_to 'Edit', edit_product_path(@product)
+\|
+= link_to 'Back', products_path
