@@ -1,27 +1,47 @@
-%p#notice= notice
+.container
+  .row 
+    .col-12
+      .card 
+        .card-body
+          %h1.text-center= @product.p_name
+          .row
+            .col-md-12
+              %p= @product.p_description
+              %p= "Costo: #{@product.p_price}"
+              %p= "Stock: #{@product.p_quantify}"
+              %p= "Costo de envio: #{@product.p_send}"
+              %p= "Disponible: #{@product.p_available}"
+              -if can? :edit, @product
+                .row 
+                  .offset-md-3.col-md-3
+                    = link_to 'Editar', edit_product_path(@product), class:"btn btn-primary btn-block"
+                  .col-md-3 
+                    = link_to 'Atras', products_path, class:"btn btn-secondary btn-block"   
 
-%p
+
+
+-#%p
   %b P name:
   = @product.p_name
-%p
-  %b P description:
-  = @product.p_description
-%p
-  %b P price:
-  = @product.p_price
-%p
-  %b P quantify:
-  = @product.p_quantify
-%p
-  %b P send:
-  = @product.p_send
-%p
-  %b P available:
-  = @product.p_available
-%p
-  %b User:
-  = @product.user
+  %p
+    %b P description:
+    = @product.p_description
+  %p
+    %b P price:
+    = @product.p_price
+  %p
+    %b P quantify:
+    = @product.p_quantify
+  %p
+    %b P send:
+    = @product.p_send
+  %p
+    %b P available:
+    = @product.p_available
+  %p
+    %b User:
+    = @product.user
 
-= link_to 'Edit', edit_product_path(@product)
-\|
-= link_to 'Back', products_path
+  = link_to 'Edit', edit_product_path(@product)
+  \|
+  = link_to 'Back', products_path

@@ -9,12 +9,16 @@
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
   %body
-  = render "partials/navbar"
   -if user_signed_in?    
+    = render "partials/navbar"
     .py-5
       .container
         .row
-          = render "home/panel"
-          .col-md-8
+          = render "partials/panel"
+          .col-md-9
             = yield
-  = render "partials/footer"
+    = render "partials/footer"
+  - else
+    = render "partials/navbar"
+    = yield
+    = render "partials/footer"

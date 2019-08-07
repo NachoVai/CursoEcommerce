@@ -6,10 +6,10 @@ class Ability
   def initialize(user)
     user ||= User.new
     if user.is_admin?
-      can :manage, Category
+      can :manage, [Category, Product]
       #can [:create, :new, :read, :update, :destroy], Category
-    elsif user.is_normal_user?
-      can :read, Category
+    elsif
+      can :read, [Category, Product]
     end 
   end
 end

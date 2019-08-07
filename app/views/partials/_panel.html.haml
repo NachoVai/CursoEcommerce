@@ -1,0 +1,9 @@
+.col-md-3
+  .list-group
+    = link_to "Resumen", home_summary_path, class:"list-group-item list-group-item-action"
+    = link_to "Administrador", home_admin_path, class:"list-group-item list-group-item-action"
+    = link_to "Reputación", home_reputation_path, class:"list-group-item list-group-item-action"
+    = link_to "Ventas", home_sales_path, class:"list-group-item list-group-item-action"
+    = link_to "Productos", home_products_path, class:"list-group-item list-group-item-action"
+    = link_to "Compras", home_purchases_path, class:"list-group-item list-group-item-action"
+  %a.list-group-item.list-group-item-action{:contenteditable => "true", :href => "configuration.html"} Configuración
