@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_08_06_203528) do
+ActiveRecord::Schema.define(version: 2019_08_09_235202) do
 
   create_table "categories", force: :cascade do |t|
     t.string "name"
@@ -30,6 +30,18 @@ ActiveRecord::Schema.define(version: 2019_08_06_203528) do
     t.datetime "updated_at", null: false
     t.index ["category_id"], name: "index_has_categories_on_category_id"
     t.index ["product_id"], name: "index_has_categories_on_product_id"
+  end
+
+  create_table "myimages", force: :cascade do |t|
+    t.string "img_file_name"
+    t.string "img_content_type"
+    t.bigint "img_file_size"
+    t.datetime "img_updated_at"
+    t.text "description"
+    t.integer "product_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["product_id"], name: "index_myimages_on_product_id"
   end
 
   create_table "products", force: :cascade do |t|
@@ -56,14 +68,14 @@ ActiveRecord::Schema.define(version: 2019_08_06_203528) do
     t.integer "age"
     t.string "img_file_name"
     t.string "img_content_type"
-    t.bigint "img_file_size"
+    t.integer "img_file_size"
     t.datetime "img_updated_at"
     t.string "state"
     t.string "city"
     t.string "street"
     t.string "udi"
     t.string "provider"
-    t.integer "permission_level"
+    t.integer "permission_level", default: 0
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "user_name"

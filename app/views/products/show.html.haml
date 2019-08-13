@@ -5,6 +5,9 @@
         .card-body
           %h1.text-center= @product.p_name
           .row
+            -@product.myimages.each do |image|
+              .col-md-3.my-5
+                = image_tag (image.img.url(:medium)), class:"img-fluid"
             .col-md-12
               %p= @product.p_description
               %p= "Costo: #{@product.p_price}"
@@ -13,10 +16,13 @@
               %p= "Disponible: #{@product.p_available}"
               -if can? :edit, @product
                 .row 
-                  .offset-md-3.col-md-3
-                    = link_to 'Editar', edit_product_path(@product), class:"btn btn-primary btn-block"
-                  .col-md-3 
+                  .col-md-4
+                    = link_to 'Editar', edit_product_path(@product), class:"btn btn-secondary btn-block"
+                  .col-md-4 
+                    = link_to 'add img', new_product_myimage_path(@product), class:"btn btn-secondary btn-block"
+                  .col-md-4
                     = link_to 'Atras', products_path, class:"btn btn-secondary btn-block"   
+                     
 
 
 

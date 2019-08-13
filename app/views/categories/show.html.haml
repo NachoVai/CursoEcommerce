@@ -4,16 +4,28 @@
       .card 
         .card-body
           %h1.text-center= @category.name
+          .row.my-5
+            = image_tag @category.c_img.url, class:"img-fluid"
+          .row 
+            %p= @category.description
           - if can? :update, @category
-            .row 
-              %p= @category.description
             .row
               .offset-md-3.col-md-3
                 = link_to 'Editar', edit_category_path(@category), class:"btn btn-primary btn-block"
               .col-md-3 
                 = link_to 'Atras', categories_path, class:"btn btn-secondary btn-block"     
-          =image_tag @category.c_img.url, class:"img-fluid"
-
+  .row
+    - @category.products.each do |product|
+      .col-md-4.my-5
+        .card.h-100
+          .card-body 
+            %h3= product.p_name
+            %p= truncate(product.p_description, length:250) 
+            .text-right
+              = link_to "show", product
+            - if can? :update, product
+              .text-right          
+                = link_to 'Edit', edit_product_path(product)
          
 -#%p
   %b Name:

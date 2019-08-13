@@ -1,0 +1,24 @@
+.col-md-12
+  .container
+    .row.text-center.ml-5
+      .text-center.col-10
+        %h1.mb-6= title ||="Titulo"
+        %br
+        = form_for [@product, @myimage] do |f|
+          - if @myimage.errors.any?
+            #error_explanation
+              %h2= "#{pluralize(@myimage.errors.count, "error")} prohibited this product from being saved:"
+              %ul
+                - @myimage.errors.full_messages.each do |message|
+                  %li= message
+
+
+          .form-group
+            /= f.label :description
+            = f.text_area :description, placeholder:"Descripción", class:"form-control"
+          .form-group
+            /= f.label :c_img
+            = f.file_field :img, placeholder:"", class:"form-control"
+          %br
+          .actions
+            = f.submit 'Confirmar', class:"btn btn-primary"
