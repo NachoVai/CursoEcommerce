@@ -4,25 +4,50 @@
       .card 
         .card-body
           %h1.text-center= @product.p_name
-          .row
-            -@product.myimages.each do |image|
-              .col-md-3.my-5
-                = image_tag (image.img.url(:medium)), class:"img-fluid"
-            .col-md-12
-              %p= @product.p_description
-              %p= "Costo: #{@product.p_price}"
-              %p= "Stock: #{@product.p_quantify}"
-              %p= "Costo de envio: #{@product.p_send}"
-              %p= "Disponible: #{@product.p_available}"
-              -if can? :edit, @product
-                .row 
-                  .col-md-4
-                    = link_to 'Editar', edit_product_path(@product), class:"btn btn-secondary btn-block"
-                  .col-md-4 
-                    = link_to 'add img', new_product_myimage_path(@product), class:"btn btn-secondary btn-block"
-                  .col-md-4
-                    = link_to 'Atras', products_path, class:"btn btn-secondary btn-block"   
-                     
+          #carouselExampleIndicators.carousel.slide{"data-ride" => "carousel"}
+            %ul.carousel-indicators
+              - flag = false
+              - cont = 0
+              - @product.myimages.ids.each do |con|
+                - if flag
+                  %li{"data-slide-to" => "#{cont}", "data-target" => "#carouselExampleIndicators"}
+                - else  
+                  %li.active{"data-slide-to" => "#{cont}", "data-target" => "#carouselExampleIndicators"}
+                  - flag = true
+                - cont = cont + 1
+            .carousel-inner
+              - flag = false
+              -@product.myimages.each do |image|
+                - if flag  
+                  .carousel-item
+                    = image_tag image.img.url(:medium),class:"d-block w-100  img-fluid"
+                - else
+                  .carousel-item.active
+                    = image_tag image.img.url(:medium),class:"d-block w-100  img-fluid"
+                    - flag = true
+            %a.carousel-control-prev{"data-slide" => "prev", :href => "#carouselExampleIndicators", :role => "button"}
+              %span.carousel-control-prev-icon{"aria-hidden" => "true"}
+              %span.sr-only Previous
+            %a.carousel-control-next{"data-slide" => "next", :href => "#carouselExampleIndicators", :role => "button"}
+              %span.carousel-control-next-icon{"aria-hidden" => "true"}
+              %span.sr-only Next
+          .col-md-12.my-5
+            %p= @product.p_description
+            %p= "Costo: #{@product.p_price}"
+            %p= "Stock: #{@product.p_quantify}"
+            %p= "Costo de envio: #{@product.p_send}"
+            %p= "Disponible: #{@product.p_available}"
+            -if can? :edit, @product
+              .row 
+                .col-md-4
+                  = link_to 'Editar', edit_product_path(@product), class:"btn btn-secondary btn-block"
+                .col-md-4 
+                  = link_to 'add img', new_product_myimage_path(@product), class:"btn btn-secondary btn-block"
+                .col-md-4
+                  = link_to 'Atras', products_path, class:"btn btn-secondary btn-block"   
+        
+          
+                  
 
 
 
