@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   end
   resources :categories
   devise_for :users
+  get 'home/search'
   get 'home/index'
   get 'home/purchases'
   get 'home/history'

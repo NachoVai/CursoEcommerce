@@ -11,4 +11,8 @@ class HomeController < ApplicationController
 
   def favorites
   end
+
+  def search
+    @products = Product.where("p_name LIKE :query", query: "%#{params[:find]}%")
+  end
 end

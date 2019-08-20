@@ -21,15 +21,17 @@
               -@product.myimages.each do |image|
                 - if flag  
                   .carousel-item
-                    = image_tag image.img.url(:medium),class:"d-block w-100  img-fluid"
                     .text-center
                       = render "buttons",img:image
+                    = image_tag image.img.url(:medium),class:"d-block w-100  img-fluid"
+                    
                 - else
                   .carousel-item.active
-                    = image_tag image.img.url(:medium),class:"d-block w-100  img-fluid"
-                    - flag = true
                     .text-center
                       = render "buttons",img:image
+                    = image_tag image.img.url(:medium),class:"d-block w-100  img-fluid"
+                    - flag = true
+
             %a.carousel-control-prev{"data-slide" => "prev", :href => "#carouselExampleIndicators", :role => "button"}
               %span.carousel-control-prev-icon{"aria-hidden" => "true"}
               %span.sr-only Previous
