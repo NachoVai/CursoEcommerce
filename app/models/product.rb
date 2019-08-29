@@ -20,6 +20,10 @@ class Product < ApplicationRecord
     @categories
   end
 
+  def paypal_form
+    {id: id, name: p_name, su: :item, price: (p_price / 100), currency:"USD", quantity: 1 }
+  end
+
   private
 
   def save_categories
@@ -33,4 +37,7 @@ class Product < ApplicationRecord
       errors.add(:categories, "Debe agregar una categoría.")
     end
   end
+
+
+
 end

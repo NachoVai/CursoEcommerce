@@ -25,10 +25,11 @@ u = User.last
     HasCategory.create(product:p,category:c)
     5.times do |ttt|
       Myimage.create(
-        img: "",
+        img:"", 
         description:"",
         product: p
         )
     end
   end
 end
+#image_tag @product.myimages.url(:medium),

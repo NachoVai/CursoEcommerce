@@ -21,13 +21,13 @@
               -@product.myimages.each do |image|
                 - if flag  
                   .carousel-item
-                    .text-center
+                    .text-center.py-3
                       = render "buttons",img:image
                     = image_tag image.img.url(:medium),class:"d-block w-100  img-fluid"
                     
                 - else
                   .carousel-item.active
-                    .text-center
+                    .text-center.py-3
                       = render "buttons",img:image
                     = image_tag image.img.url(:medium),class:"d-block w-100  img-fluid"
                     - flag = true

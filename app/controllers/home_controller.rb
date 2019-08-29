@@ -1,6 +1,7 @@
 class HomeController < ApplicationController
   #before_action :authenticate_user!, except: :index
   def index
+    @products = Product.paginate(:page => params[:page],:per_page => 15)
   end
 
   def purchases
@@ -10,6 +11,7 @@ class HomeController < ApplicationController
   end
 
   def favorites
+    @favorites = current_user.favorites
   end
 
   def search

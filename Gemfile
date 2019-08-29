@@ -4,13 +4,25 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 ruby '2.6.1'
 
 gem 'jquery-rails'
+
 gem 'bootstrap', '~> 4.3.1'
+# Haml
 gem "haml"
+gem "haml-rails", "~> 2.0"
+
 gem "annotate"
 gem "devise"
+
+#para crear maquinas de estado
+gem 'aasm'
+
+# Paginacion
+gem 'will_paginate', '~> 3.1.0'
+# Imagenes
 gem "paperclip", git: "git://github.com/thoughtbot/paperclip.git"
-gem "haml-rails", "~> 2.0"
+# Fuentes
 gem "font-awesome-rails"
+# Permisos
 gem 'cancancan'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.3'

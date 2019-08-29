@@ -16,3 +16,15 @@
 //= require jquery3
 //= require popper
 //= require bootstrap-sprockets
+//= require cart
+var ap_accions = {
+    toast_alert(type, title, timer){
+      Swal({
+        position: 'top-end',
+        type: type,
+        title: title,
+        showConfirmButton: false,
+        timer: timer
+      })
+    }
+  }

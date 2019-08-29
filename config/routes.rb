@@ -4,6 +4,11 @@ Rails.application.routes.draw do
   end
   resources :categories
   devise_for :users
+
+  resources :my_shopping_carts, only: [:create, :destroy]
+  resources :favorites, only: [:create, :destroy]
+
+  get "/add/:product_id", as: :add_to_cart, to: "my_shopping_carts#create"
   get 'home/search'
   get 'home/index'
   get 'home/purchases'
@@ -14,6 +19,7 @@ Rails.application.routes.draw do
   get 'home/reputation'
   get 'home/sales'
   get 'home/summary'
+  get 'home/car'
 
   root "home#index"
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
