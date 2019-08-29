@@ -8,7 +8,7 @@ class ShoppingCart < ApplicationRecord
     state :created, initial: true
     state :payed
     event :pay do
-      transitions from: :created, to: :pay
+      transitions from: :created, to: :payed
     end
   end
 

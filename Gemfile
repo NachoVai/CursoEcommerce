@@ -13,6 +13,9 @@ gem "haml-rails", "~> 2.0"
 gem "annotate"
 gem "devise"
 
+#SDK paypal
+gem 'paypal-sdk-rest'
+
 #para crear maquinas de estado
 gem 'aasm'
 
