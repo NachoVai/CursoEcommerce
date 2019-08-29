@@ -14,7 +14,7 @@ class ShoppingCart < ApplicationRecord
 
 
   def in_cart
-		products = Array.new
+		products = []
     size = 0
 		self.products.order("id ASC").each do |product|
 			if products.empty? || products[size][:id] != product[:id]

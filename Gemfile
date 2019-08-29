@@ -16,16 +16,16 @@ gem "devise"
 #SDK paypal
 gem 'paypal-sdk-rest'
 
-#para crear maquinas de estado
+#create state machine
 gem 'aasm'
 
-# Paginacion
+# Pagination
 gem 'will_paginate', '~> 3.1.0'
-# Imagenes
+# Images
 gem "paperclip", git: "git://github.com/thoughtbot/paperclip.git"
-# Fuentes
+# Fonts
 gem "font-awesome-rails"
-# Permisos
+# Permissions
 gem 'cancancan'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.3'

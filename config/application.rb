@@ -6,7 +6,6 @@ require 'rails/all'
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
 
-#Paperclip::Attachment.default_options[:default_url] = "/images/medium/:style/missing.png"
 
 module Ecommerce
   class Application < Rails::Application
