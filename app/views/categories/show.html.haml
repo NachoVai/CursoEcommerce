@@ -15,7 +15,7 @@
               .col-md-3 
                 = link_to 'Atras', categories_path, class:"btn btn-secondary btn-block"     
   .row
-    - @category.products.each do |product|
+    - @products.each do |product|
       .col-md-4.my-5
         .card.h-100
           .card-body 
@@ -26,6 +26,8 @@
             - if can? :update, product
               .text-right          
                 = link_to 'Edit', edit_product_path(product)
+  .flickr_pagination
+    = will_paginate @products 
          
 -#%p
   %b Name:

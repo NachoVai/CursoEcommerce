@@ -4,7 +4,7 @@ module PermissionsConcern extend ActiveSupport::Concern
     end
     def is_admin?
         return false if self.permission_level.nil?
-        self.permission_level >= 9
+        self.permission_level >= 3
     end
 end
     

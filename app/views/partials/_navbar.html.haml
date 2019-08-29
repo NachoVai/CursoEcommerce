@@ -2,7 +2,7 @@
   .container
     %a.navbar-brand{:href => "#"}
       %i.fa.d-inline.fa-lg.fa-circle-o
-      %b BRAND
+      %b NV
     %button.navbar-toggler.navbar-toggler-right.border-0{"data-target" => "#navbar11", "data-toggle" => "collapse", :type => "button"}
       %span.navbar-toggler-icon
     #navbar11.collapse.navbar-collapse
@@ -21,11 +21,14 @@
             - @categories.each do |category|
               =link_to category.name, category, class:"dropdown-item"
               .dropdown-divider
-      %form.form-inline.my-2.my-lg-0
-        %input.form-control.mr-sm-0.mx-1{:placeholder => "Buscar", :type => "text"}/
-        .input-group-append
-          %button.btn.btn-primary{:type => "button"}
-            %i.fa.fa-search
+      = form_tag "/home/search", :method => :get, :class => "form-inline my-2 my-lg-0"  do     
+        = text_field_tag "find", nil, html: { require:true }, placeholder:"Buscar", class:"form-control mr-sm-0 mx-1"   
+        %button.btn.btn-primary{:type => "submit"} 
+          %i.fa.fa-search 
+      = link_to home_car_path, class: "btn btn-default navbar-btn mx-1 btn-primary py-1" do
+        %i.fa.fa-fw.fa_shopping-cart.fa.lg#mycart.text-white
+          = @shopping_cart.products.count
+
       %div
       - if user_signed_in?
         .btn-group.pi-draggable.mx-1

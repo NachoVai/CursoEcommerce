@@ -1,2 +1,19 @@
 = render "partials/alerts"
 
+.row
+  -@products.each do |product|
+    .col-md-3.col-lg-4.col-sm-12.my-3
+      .card
+        - if !product.myimages.first.nil?
+          =image_tag product.myimages.first.img.url(:medium) , class:"card-img-top", style:"max-height:200px"
+        .card-body
+          .row 
+            .col-xs-12.col-md-4.col-lg-12
+              %h3.text-center.card-title= product.p_name
+              %p= truncate(product.p_description, length:250)
+            .col-xs-12.col-md-8.col-lg-12
+              =link_to product, class:"btn btn-primary mx-1" do 
+                %i.fa.fa-fw.fa-eye.fa-lg
+              =render "partials/buttons",product:product
+.flickr_pagination
+  = will_paginate @products

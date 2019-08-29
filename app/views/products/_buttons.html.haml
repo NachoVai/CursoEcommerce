@@ -1,0 +1,4 @@
+- if can? :update, img
+  =link_to "Cambiar", edit_product_myimage_path(@product, img)
+- if can? :delete, img
+  = link_to "Eliminar", [@product, img], method: :delete, data: { confirm: 'Deseas eliminar esta imagen?' }

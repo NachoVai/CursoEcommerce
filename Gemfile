@@ -4,13 +4,28 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 ruby '2.6.1'
 
 gem 'jquery-rails'
+
 gem 'bootstrap', '~> 4.3.1'
+# Haml
 gem "haml"
+gem "haml-rails", "~> 2.0"
+
 gem "annotate"
 gem "devise"
+
+#SDK paypal
+gem 'paypal-sdk-rest'
+
+#create state machine
+gem 'aasm'
+
+# Pagination
+gem 'will_paginate', '~> 3.1.0'
+# Images
 gem "paperclip", git: "git://github.com/thoughtbot/paperclip.git"
-gem "haml-rails", "~> 2.0"
+# Fonts
 gem "font-awesome-rails"
+# Permissions
 gem 'cancancan'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.3'
