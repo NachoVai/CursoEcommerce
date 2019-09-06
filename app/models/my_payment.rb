@@ -1,5 +1,6 @@
 class MyPayment < ApplicationRecord
   include AASM
+  belongs_to :user
   belongs_to :shopping_cart, :dependent => :destroy
   has_many :products, through: :shopping_cart
 
