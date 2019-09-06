@@ -19,6 +19,10 @@ gem 'paypal-sdk-rest'
 #create state machine
 gem 'aasm'
 
+#PDF convert
+gem 'wicked_pdf'
+gem 'wkhtmltopdf-binary'
+
 # Pagination
 gem 'will_paginate', '~> 3.1.0'
 # Images
